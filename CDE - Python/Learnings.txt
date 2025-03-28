@@ -1,0 +1,20 @@
+3/2/25
+    conditional statments
+    PS: School Marksheet
+    PS: Working Conditions
+    Logical Operators
+    Lists
+
+09/03/25
+    Github
+        push 
+        pull
+        merge
+        clone  
+
+16/3/25
+    Assignment 03 - 04
+    Sets
+    Tuples
+    for loop
+    list of list
