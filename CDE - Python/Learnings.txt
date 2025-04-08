@@ -1,20 +1,31 @@
-3/2/25
+3/2/25 Class 01
     conditional statments
     PS: School Marksheet
     PS: Working Conditions
     Logical Operators
     Lists
 
-09/03/25
+09/03/25 Class 02
     Github
         push 
         pull
         merge
         clone  
 
-16/3/25
+16/3/25 Class 03
     Assignment 03 - 04
     Sets
     Tuples
     for loop
     list of list
+    Dictionary
+
+5/4/25 Class 04
+    Revision of Dictionary + Nested Dictionary
+    Functions
+
+6/4/25 Class 05
+    While Loop
+    Object Oriented Programming OOPs (according to sir Uzair, we dont use classes and OOPs much in the CDE while working on the main projects)
+    File Handling
+    Error Handling
