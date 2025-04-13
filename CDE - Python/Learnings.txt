@@ -29,3 +29,6 @@
     Object Oriented Programming OOPs (according to sir Uzair, we dont use classes and OOPs much in the CDE while working on the main projects)
     File Handling
     Error Handling
+
+12/4/25 Class 06
+    OOPs Revision
