@@ -1,0 +1,11 @@
+19/4/25 Class 08
+    https://realpython.github.io/fake-jobs/
+    https://www.codewithfaraz.com/article/79/a-comprehensive-list-of-html-tags-for-web-development
+
+    ETL - Extract Transform load
+
+    filtering is a part of crawler
+
+    searching is a part of scrapper
+    
+    Computer Vision --> New apporach of web scrapping
