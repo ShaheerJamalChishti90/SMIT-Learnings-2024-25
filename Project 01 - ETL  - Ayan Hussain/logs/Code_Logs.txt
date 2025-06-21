@@ -1,0 +1,4 @@
+2025-06-21 16:05:01.433330: Data has been extracted successfully.
+2025-06-21 16:05:03.403940: Data has been extracted successfully.
+2025-06-21 16:05:03.406938: Data has been transformed successfully.
+2025-06-21 16:05:03.407937: Data has been loaded successfully.
