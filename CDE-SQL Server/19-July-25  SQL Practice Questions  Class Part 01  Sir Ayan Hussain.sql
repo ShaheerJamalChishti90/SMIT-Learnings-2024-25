@@ -86,5 +86,3 @@ inner join
 inner join
 	production.products pp 
 	on pp.product_id = ot.product_id;
-
-
