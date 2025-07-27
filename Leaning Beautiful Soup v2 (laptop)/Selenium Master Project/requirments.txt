@@ -1,0 +1,7 @@
+urllib3 < 2.0
+pandas
+selenium == 3.141.2 
+ 
+## This is how you install all the libraries just by reading a single file!
+    pip install -r requirments.txt
+

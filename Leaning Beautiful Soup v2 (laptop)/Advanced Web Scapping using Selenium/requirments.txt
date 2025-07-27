@@ -1,0 +1,15 @@
+pandas
+selenium == 3.141.0
+urllib3 < 2.0
+
+pip install -r "."
+
+chrome driver from stable - install karne ke baad divers ko extract(unzip) karke ek alag folder banana hai aurr wahan save karne hain
+
+chrome drivers: 
+    sir uzair ki repo se drivers ka link
+        uske baad version 115 pe click karna hai
+            wahan se stable pe click karna hai  
+                aurr neechay stable table mein se win64 ka chrome driver version uthana hai
+                    wo khud hii download hojayega, uske baad uske downloads mein hii extract karke peechly banaye huay folder mein save karwadoon
+                    
