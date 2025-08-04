@@ -11,7 +11,7 @@ join
 select concat(ss.first_name,'', ss.last_name), concat(sc.first_name,'', sc.last_name) from sales.customers sc join sales.staffs ss on concat(sc.first_name,'', sc.last_name) = concat(ss.first_name,'', ss.last_name);
 
 
-
+-- Having Clause
 select concat(sc.first_name,'', sc.last_name) customer_name from sales.customers sc group by sc.first_name, sc.last_name having count(*) > 1;
 
 select 
@@ -66,35 +66,6 @@ SELECT NULL, NULL, SUM(sales) AS total_sales
 FROM sales.sales_summary;
 
 
--- Grouping Sets
-
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by 
-	grouping sets (
-	(brand_name, category_name), 
-	(brand_name), 
-	(category_name), 
-	()
-);
-
-
-
--- Cube Clause
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by  cube(brand_name, category_name);
-
--- Partial Grouping
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by  brand_name, cube (category_name);
-
--- Rollup Clause
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by  rollup(brand_name, category_name);
-
--- Partial Rollup Clause
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by  brand_name, rollup(category_name);
-
--- (category)(null)
--- (brand)(category)
-
-
-select brand_name, category_name, sum(sales) as total_sales from sales.sales_summary group by  category_name, rollup(brand_name);
 
 
 
