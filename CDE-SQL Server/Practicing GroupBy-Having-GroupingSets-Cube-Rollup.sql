@@ -64,7 +64,7 @@ select o.CustomerID, sum(o.Price) as Money_Spent from Sales.Orders o group by o.
 -- Similarly, Getting the total quantity ordered by the each customer
 select o.CustomerID, sum(o.Quantity) as Total_Products_Orders, sum(o.Price) as Total_Price from Sales.Orders o group by o.CustomerID;
 
-select * from Sales.Orders
+select * from Sales.Orders;
 
-select o.CustomerID, o.ProductID, sum(o.Quantity) total_quantity_ordered, sum(o.Price) as Price, year(o.OrderDate) order_year from Sales.Orders o group by o.ProductID, o.CustomerID, o.OrderDate order by o.CustomerID;
+select o.CustomerID, o.ProductID, sum(o.Quantity) total_quantity_ordered, sum(o.Price) as Price, year(o.OrderDate) from Sales.Orders o group by o.ProductID, o.CustomerID, o.OrderDate order by o.CustomerID;
 
