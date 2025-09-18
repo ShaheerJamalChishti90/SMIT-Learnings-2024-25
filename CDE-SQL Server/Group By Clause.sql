@@ -83,3 +83,46 @@ group by
     c.first_name, c.last_name
 having 
     count(o.order_id) > 2;
+
+
+
+-- More on GROUP BY
+--Count the number of products in each category.
+--Write a query that returns the category_id and the total number of products for each category.
+SELECT
+    category_id,
+    COUNT (product_id) total_product
+FROM
+    production.products
+GROUP BY
+    category_id
+ORDER BY
+    category_id;
+
+
+
+--Find the total quantity of products in stock for each store.
+--Write a query to list each store_id and the sum of all quantity 
+--values from the stocks table for that store.
+
+select 
+    store_id, sum(quantity) stock_quantity
+from 
+    production.stocks
+group by
+    store_id
+
+
+--Calculate the total number of orders placed by each customer.
+--Write a query that displays the customer_id 
+--and the count of their total orders from the orders table.
+
+select 
+    customer_id, 
+    count(order_id) orders_placed
+from 
+    sales.orders
+group by 
+    customer_id
+
+

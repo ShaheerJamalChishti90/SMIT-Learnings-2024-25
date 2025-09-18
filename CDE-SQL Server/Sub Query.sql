@@ -17,6 +17,7 @@ WHERE
 ORDER BY
     customer_id;
 
+select o.order_id, o.order_date, o.customer_id from sales.orders o join sales.customers c on o.customer_id = c.customer_id where c.city = 'New York' order by c.customer_id;
 
 select product_name, list_price from production.products where list_price > 2498 and list_price < 2800 order by list_price
 
@@ -128,3 +129,98 @@ WHERE
 
 
 select category_name, product_name, list_price from production.categories pc join production.products pp on pc.category_id = pp.category_id
+
+
+
+
+--Subqueries in the WHERE clause
+--Find all products that have a list price greater than the average list price of all products.
+--Write a query that uses a subquery to calculate the average price and then filters the products based on that value.
+select 
+     p.product_id, p.product_name, p.list_price
+from 
+    production.products p
+where
+    p.list_price > (
+    select 
+        avg(p.list_price)
+        from production.products p)
+order by
+    p.list_price desc
+
+
+
+--Identify all staff members who have placed an order.
+--Write a query that lists the first_name and last_name of any staff member whose staff_id exists in the orders table as staff_id.
+
+select 
+    --st.store_name,
+    s.staff_id,
+    concat(s.first_name, ' ', s.last_name) staff_name
+    --o.order_id
+    --pp.product_name
+from 
+    sales.staffs s
+--join 
+--    sales.stores st
+--    on st.store_id = s.store_id
+--join 
+--    sales.orders o
+--    on o.staff_id= st.store_id
+--join 
+--    production.stocks ps
+--    on ps.store_id = st.store_id
+--join 
+--    production.products pp
+--    on ps.product_id = pp.product_id
+where 
+    s.staff_id in (
+    select o.staff_id from sales.orders o)
+order by 
+    s.staff_id
+
+
+select ss.staff_id, concat(ss.first_name, ' ', ss.last_name ) from sales.staffs ss join sales.orders o on o.staff_id = ss.staff_id group by ss.staff_id, ss.first_name, ss.last_name order by ss.staff_id
+
+
+
+--Find the most expensive product in each category.
+--Write a query that uses a correlated subquery to find the product_name 
+--and list_price of the most expensive product for each category.
+SELECT
+    product_name,
+    list_price,
+    category_id
+FROM
+    production.products p1
+WHERE
+    list_price IN (
+        SELECT
+            MAX (p2.list_price)
+        FROM
+            production.products p2
+        WHERE
+            p2.category_id = p1.category_id
+        GROUP BY
+            p2.category_id
+    )
+ORDER BY
+    category_id,
+    product_name;
+
+
+
+
+
+--Subqueries in the FROM clause
+--Calculate the total number of orders placed in the year 2017.
+--Use a subquery in the FROM clause to first get all orders from 2017, and then count the number of orders in the outer query.
+select count(order_id) total_orders_16 from (select * from sales.orders o where year(o.order_date) = 2016) t;
+select count(order_id) total_orders_17 from (select * from sales.orders o where year(o.order_date) = 2017) t;
+select count(order_id) total_orders_18 from (select * from sales.orders o where year(o.order_date) = 2018) t;
+
+--Find the total sales amount for each store.
+--Create a subquery that calculates the sales amount for each order (quantity * list_price). 
+--Then, in the outer query, group the results by store_id and sum the total sales amount.
+
+select ot.order_id, (ot.quantity * ot.list_price) sales_amount from sales.order_items ot group by ot.order_id
